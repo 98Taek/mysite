@@ -18,4 +18,4 @@ def image_create(request):
             return redirect(new_image.get_absolute_url())
     else:
         form = ImageCreateForm(data=request.GET)
-    return render(request, 'images/image/create.html', {'section': 'images', 'form':form})
+    return render(request, 'images/image/create.html', {'section': 'images', 'form': form})
