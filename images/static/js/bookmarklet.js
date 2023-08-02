@@ -1,4 +1,4 @@
-const siteURL = '//127.0.0.1:8000/';
+const siteURL = '//mysite.com:8000/';
 const styleURL = siteURL + 'static/css/bookmarklet.css';
 const minWidth = 250;
 const minHeight = 250;
@@ -28,12 +28,20 @@ function bookmarkletLaunch() {
     });
     images = document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]');
     images.forEach(image => {
-       if(image.naturalWidth >= minWidth && image.naturalHeight >= minHeight)
-       {
-           var imageFound = document.createElement('img');
-           imageFound.src = image.src;
-           imagesFound.append(imageFound);
-       }
+        if (image.naturalWidth >= minWidth && image.naturalHeight >= minHeight) {
+            var imageFound = document.createElement('img');
+            imageFound.src = image.src;
+            imagesFound.append(imageFound);
+        }
+    });
+    imagesFound.querySelectorAll('img').forEach(image => {
+        image.addEventListener('click', function (event) {
+            imageSelected = event.target;
+            bookmarklet.style.display = 'none';
+            window.open(siteURL + 'images/create/?url='
+                + encodeURIComponent(imageSelected.src) + '&title='
+                + encodeURIComponent(document.title), '_blank');
+        });
     });
 }
 
