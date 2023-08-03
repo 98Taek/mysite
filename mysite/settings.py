@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.postgres',
     'django_extensions',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
