@@ -2,10 +2,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
 
 from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
-from account.models import Profile
+from account.models import Profile, Contact
 
 
 class CustomLoginView(LoginView):
@@ -61,3 +63,21 @@ def user_list(request):
 def user_detail(request, username):
     user = get_object_or_404(User, username=username, is_active=True)
     return render(request, 'account/user/detail.html', {'section': 'people', 'user': user})
+
+
+@require_POST
+@login_required
+def user_follow(request):
+    user_id = request.POST.get('id')
+    action = request.POST.get('action')
+    if user_id and action:
+        try:
+            user = User.objects.get(id=user_id)
+            if action == 'follow':
+                Contact.objects.get_or_create(user_from=request.user, user_to=user)
+            else:
+                Contact.objects.filter(user_from=request.user, user_to=user).delete()
+            return JsonResponse({'status': 'ok'})
+        except User.DoesNotExist:
+            return JsonResponse({'status': 'error'})
+    return JsonResponse({'status': 'error'})
