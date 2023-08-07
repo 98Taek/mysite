@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'easy_thumbnails',
     'debug_toolbar',
+    'shop.apps.ShopConfig',
 ]
 
 MIDDLEWARE = [
