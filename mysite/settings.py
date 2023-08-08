@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'debug_toolbar',
     'shop.apps.ShopConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -198,3 +199,5 @@ INTERNAL_IPS = [
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 0
+
+CART_SESSION_ID = 'cart'
