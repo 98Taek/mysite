@@ -10,7 +10,7 @@
              alt="">
         <h1>{{ product.name }}</h1>
         <h2>
-            <a href="{{ product.get_absolute_url }}">
+            <a href="{{ product.category.get_absolute_url }}">
                 {{ product.category }}
             </a>
         </h2>
