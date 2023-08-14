@@ -37,6 +37,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('cart/', include('cart.urls')),
     path('orders/', include('orders.urls')),
+    path('payment/', include('payment.urls')),
     path('shop/', include('shop.urls')),
 ]
 
