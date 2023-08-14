@@ -12,3 +12,5 @@ django-debug-toolbar==4.1.0
 redis==4.6.0
 celery==5.3.1
 flower==2.0.0
+stripe==5.5.0
+weasyprint==59.0
