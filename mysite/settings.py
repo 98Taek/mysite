@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 SITE_ID = 1
 
 INSTALLED_APPS = [
+    'payment.apps.PaymentConfig',
     'actions.apps.ActionsConfig',
     'images.apps.ImagesConfig',
     'social_django',
@@ -203,3 +204,7 @@ REDIS_PORT = 6379
 REDIS_DB = 0
 
 CART_SESSION_ID = 'cart'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51NepHGGbP52Qf6oNwH5dtr0AoP2KykWxYJUBQTkjytsNKsBHcX4V50Eezb7QFtaSbgJ5JlJNwsIu3VUkVCg9iRSE00Wog8x7dC'
+STRIPE_SECRET_KEY = 'sk_test_51NepHGGbP52Qf6oN9RVNMpjTIjqfMD37E2pde6YAWMqNm99X6FcSTdYtYFtWXe5Dxr9LDBEGviq6Oh8k5qMf1fGb00boInAIP0'
+STRIPE_API_VERSION = '2022-11-15'
