@@ -34,10 +34,11 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('images/', include('images.urls', namespace='images')),
-    path('__debug__/', include('debug_toolbar.urls')),
     path('cart/', include('cart.urls')),
     path('orders/', include('orders.urls')),
     path('payment/', include('payment.urls')),
+    path('coupons/', include('coupons.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
     path('shop/', include('shop.urls')),
 ]
 
