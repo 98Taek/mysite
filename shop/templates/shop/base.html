@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,24 +7,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}My Shop{% endblock title %}</title>
+    <title>{% block title %}{% trans "My Shop" %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/shop_base.css' %}">
 </head>
 <body>
 <div id="header">
-    <a href="/shop/" class="logo">My Shop</a>
+    <a href="/shop/" class="logo">{% trans "My Shop" %}</a>
 </div>
 <div id="subheader">
     <div class="cart">
         {% with total_items=cart|length %}
             {% if total_items > 0 %}
-                Your cart:
+                {% trans "Your cart" %}:
                 <a href="{% url 'cart:cart_detail' %}">
-                    {{ total_items }} item{{ total_items|pluralize }},
-                    ${{ cart.get_total_price }}
+                    {% blocktrans with total=cart.get_total_price count items=total_items %}
+                        {{ items }} item, ${{ total }}
+                    {% plural %}
+                        {{ items }} items, ${{ total }}
+                    {% endblocktrans %}
                 </a>
             {% elif not order %}
-                Your cart is empty.
+                {% trans "Your cart is empty." %}
             {% endif %}
         {% endwith %}
     </div>
