@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 14:40+0900\n"
+"POT-Creation-Date: 2023-08-21 15:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,58 +33,6 @@ msgstr "영어"
 #: mysite/settings.py:132
 msgid "Korean"
 msgstr "한국어"
-
-#: orders/models.py:13
-msgid "first name"
-msgstr "이름"
-
-#: orders/models.py:14
-msgid "last name"
-msgstr "성"
-
-#: orders/models.py:15
-msgid "email"
-msgstr "이메일"
-
-#: orders/models.py:16
-msgid "address"
-msgstr "주소"
-
-#: orders/models.py:17
-msgid "postal code"
-msgstr "우편 번호"
-
-#: orders/models.py:18
-msgid "city"
-msgstr "도시"
-
-#: orders/templates/orders/order/create.html:4
-#: orders/templates/orders/order/create.html:7
-msgid "Checkout"
-msgstr "체크아웃"
-
-#: orders/templates/orders/order/create.html:9
-msgid "Your order"
-msgstr "주문 정보"
-
-#: orders/templates/orders/order/create.html:19
-#, python-format
-msgid ""
-"\n"
-"                        \"%(code)s\" (%(discount)s%% off)\n"
-"                    "
-msgstr ""
-"\n"
-"                        \"%(code)s\" (%(discount)s%% 할인)\n"
-"                    "
-
-#: orders/templates/orders/order/create.html:26
-msgid "Total"
-msgstr "총"
-
-#: orders/templates/orders/order/create.html:31
-msgid "Place order"
-msgstr "주문하기"
 
 #: shop/templates/shop/base.html:10 shop/templates/shop/base.html:15
 msgid "My Shop"
@@ -1734,3 +1682,43 @@ msgstr ""
 msgctxt "stick"
 msgid "club"
 msgstr ""
+
+#~ msgid "first name"
+#~ msgstr "이름"
+
+#~ msgid "last name"
+#~ msgstr "성"
+
+#~ msgid "email"
+#~ msgstr "이메일"
+
+#~ msgid "address"
+#~ msgstr "주소"
+
+#~ msgid "postal code"
+#~ msgstr "우편 번호"
+
+#~ msgid "city"
+#~ msgstr "도시"
+
+#~ msgid "Checkout"
+#~ msgstr "체크아웃"
+
+#~ msgid "Your order"
+#~ msgstr "주문 정보"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "                        \"%(code)s\" (%(discount)s%% off)\n"
+#~ "                    "
+#~ msgstr ""
+#~ "\n"
+#~ "                        \"%(code)s\" (%(discount)s%% 할인)\n"
+#~ "                    "
+
+#~ msgid "Total"
+#~ msgstr "총"
+
+#~ msgid "Place order"
+#~ msgstr "주문하기"
