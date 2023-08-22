@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'coupons.apps.CouponsConfig',
     'rosetta',
+    'parler',
 ]
 
 MIDDLEWARE = [
@@ -225,3 +226,15 @@ STATIC_ROOT = BASE_DIR / 'static'
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
+
+# django-parler settings
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'ko'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
