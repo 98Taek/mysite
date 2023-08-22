@@ -17,30 +17,36 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 
 from blog.sitemaps import PostSitemap
+from payment import webhooks
 
 sitemaps = {
     'posts': PostSitemap,
 }
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('images/', include('images.urls', namespace='images')),
-    path('cart/', include('cart.urls')),
-    path('orders/', include('orders.urls')),
-    path('payment/', include('payment.urls')),
-    path('coupons/', include('coupons.urls')),
+    path(_('cart/'), include('cart.urls')),
+    path(_('orders/'), include('orders.urls')),
+    path(_('payment/'), include('payment.urls')),
+    path(_('coupons/'), include('coupons.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('rosetta/', include('rosetta.urls')),
-    path('shop/', include('shop.urls')),
+    path('', include('shop.urls')),
+)
+
+urlpatterns += [
+    path('payment/webhook/', webhooks.stripe_webhook, name='stripe-webhook'),
 ]
 
 if settings.DEBUG:
