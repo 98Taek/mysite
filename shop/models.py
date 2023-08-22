@@ -4,7 +4,7 @@ from parler.models import TranslatableModel, TranslatedFields
 
 
 class Category(TranslatableModel):
-    translation = TranslatedFields(
+    translations = TranslatedFields(
         name=models.CharField(max_length=200),
         slug=models.SlugField(max_length=200, unique=True, allow_unicode=True),
     )
@@ -25,7 +25,7 @@ class Category(TranslatableModel):
 
 
 class Product(TranslatableModel):
-    translation = TranslatedFields(
+    translations = TranslatedFields(
         name=models.CharField(max_length=200),
         slug=models.SlugField(max_length=200, allow_unicode=True),
         description=models.TextField(blank=True),
